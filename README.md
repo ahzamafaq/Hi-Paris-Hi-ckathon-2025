@@ -5,7 +5,7 @@ Hi!ckathon 6 (Nov 2025), organized by Hi! PARIS (HEC &amp; IP Paris), was a prem
 # EducAId: AI for Educational Continuity
 
 ![Hackathon](https://img.shields.io/badge/Hi!ckathon_6-Laureate-gold)
-![Award](https://img.shields.io/badge/Award-Best_Scientific_Approach-blue)
+![Award](https://img.shields.io/badge/Award-Honorable_Mention-blue)
 ![Model](https://img.shields.io/badge/Model-CatBoost-green)
 ![R2 Score](https://img.shields.io/badge/R²-0.7909-brightgreen)
 
