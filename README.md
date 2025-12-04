@@ -62,6 +62,13 @@ For the final predictions, we did not rely on a single model. We implemented a N
 
 ---
 
+## Dataset
+
+The PISA dataset used in this project is available on Kaggle:
+[PISA MathScore Prediction Dataset](https://www.kaggle.com/datasets/kepard/pisamathscore/)
+
+---
+
 ## Results
 
 | Metric | Score |
