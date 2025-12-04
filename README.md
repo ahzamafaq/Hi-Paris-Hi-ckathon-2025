@@ -17,7 +17,7 @@ EducAId is an AI-driven Early Intervention System developed during Hi!ckathon 6 
 
 ## Achievements
 
-* **Ranked 7th** on the Leaderboard (out of 68 teams).
+* **Ranked 7th** on the Leaderboard (out of 80 teams).
 * **Honorable Mention** from the Grand Jury.
 * **Selected** to represent France at the Hi!Paris x IPAI Foundation Hackathon 2026 (Germany).
 
