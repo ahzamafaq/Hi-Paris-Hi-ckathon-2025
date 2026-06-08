@@ -11,6 +11,8 @@ Hi!ckathon 6 (Nov 2025), organized by Hi! PARIS (HEC &amp; IP Paris), was a prem
 
 > "To teach the mind, you must reach the human."
 
+> Built by **Group 2** at Hi!ckathon 6 — a team collaboration.
+
 EducAId is an AI-driven Early Intervention System developed during Hi!ckathon 6 (organized by HEC Paris & Institut Polytechnique de Paris). It addresses the "Volume Barrier" in education where teachers managing 90+ students become "managers of grades" rather than mentors. Our model restores educational continuity by detecting at-risk students before they disconnect.
 
 ---
@@ -20,6 +22,17 @@ EducAId is an AI-driven Early Intervention System developed during Hi!ckathon 6 
 * **Ranked 7th** on the Leaderboard (out of 80 teams).
 * **Honorable Mention** from the Grand Jury.
 * **Selected** to represent France at the Hi!Paris x IPAI Foundation Hackathon 2026 (Germany).
+
+---
+
+## Tech Stack
+
+* **Language:** Python
+* **Data Analysis:** pandas, NumPy, Matplotlib, Seaborn (`EDA.ipynb`)
+* **Modeling:** scikit-learn (`StackingRegressor`, `Ridge`, `KFold`, `train_test_split`), XGBoost (`XGBRegressor`), CatBoost (`CatBoostRegressor`, `Pool`)
+* **Hyperparameter Tuning:** Optuna (Bayesian optimization — 40-trial study minimizing validation RMSE for CatBoost)
+* **Evaluation:** R² score, RMSE (`sklearn.metrics`)
+* **Notebooks:** `EDA.ipynb` (exploratory analysis & feature distributions), `Hickathon_Group_2.ipynb` (full modeling pipeline)
 
 ---
 
@@ -46,7 +59,7 @@ We deployed XGBoost as our primary estimator to capture non-linear relationships
 CatBoost was selected as the specialized engine for the PISA survey data due to its superior handling of categorical features and "ordered boosting" technique, which reduces overfitting on small datasets.
 
 **Hyperparameters (Final Tuned):**
-We fine-tuned this model extensively, utilizing Grid Search to reach the following optimal parameters:
+We fine-tuned this model extensively, using **Optuna** (Bayesian hyperparameter optimization, 40-trial study minimizing validation RMSE) to reach the following optimal parameters:
 * Iterations: 8195
 * Learning Rate: 0.0166
 * Depth: 11
@@ -58,7 +71,7 @@ We fine-tuned this model extensively, utilizing Grid Search to reach the followi
 * Loss Function: RMSE
 
 #### Model 3: Heterogeneous Stacking (Final Predictor)
-For the final predictions, we did not rely on a single model. We implemented a Non-linear Meta-Learner that stacked the predictions from XGBoost and CatBoost. This allowed us to leverage the strengths of both algorithms XGBoost's efficiency with numerical splits and CatBoost's precision with categorical logic resulting in a final validation R² of 0.7909.
+For the final predictions, we did not rely on a single model. We implemented a stacked ensemble (`sklearn.StackingRegressor`) combining the predictions from XGBoost and CatBoost as base learners. The meta-learner was iterated from an initial **Ridge** regression baseline to a final **XGBoost Regressor**, which better captured non-linear interactions between the base models' outputs. This let us leverage XGBoost's efficiency with numerical splits and CatBoost's precision with categorical logic — resulting in a final validation R² of 0.7909.
 
 ---
 
